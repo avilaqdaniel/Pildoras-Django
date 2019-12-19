@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:blue">Desde un template en Django</h1>
+    {# Comentario en Python #}
+    {% comment %}
+        Comentario en varias líneas
+    {% endcomment %}
+    {% if nombre_persona == 'Daniel' %}
+    <p>EL curso lo imparto YO</p>
+    {% else %}
+    <p>EL curso lo imparte el profesor suplente</p>
+    {% endif %}
+    <p>El nombre de mi hijita es: {{nombre_persona}} {{apellido_persona.upper}}.</p>
+    <p>Hoy es {{fecha_ahora.day}}/{{fecha_ahora.month}}/{{fecha_ahora.year}}</p>
+    <p><strong>Temas del curso</strong></p>
+    <ol>
+        {% if temas %}
+            {% for tema in temas %}
+                <li>{{tema|first|lower}}</li>
+            {% endfor %}
+        {% else %}
+        <p>No existen elementos</p>
+        {% endif %}
+    </ol>
+</body>
+</html>
